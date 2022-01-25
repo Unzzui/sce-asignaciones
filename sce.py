@@ -6,7 +6,6 @@ from enum import unique
 from optparse import Values
 from matplotlib import markers
 from matplotlib.pyplot import title
-from sklearn.utils import column_or_1d
 import streamlit as st
 import pandas as pd
 import numpy as np
