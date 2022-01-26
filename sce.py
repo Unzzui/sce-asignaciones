@@ -28,6 +28,13 @@ img1= Image.open('oca1.png')
 st.set_page_config(page_title="Asignaciones SCE", page_icon=img, layout="wide")
 # ---- Web App Title ----
 
+st.markdown(("""
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style>
+
+"""),unsafe_allow_html=True)
 
 st.image(img1 , width=250)
 st.markdown('''
