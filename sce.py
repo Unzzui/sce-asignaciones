@@ -138,7 +138,3 @@ with left_column:
 
 st.write(df_selection)
 
-while True:
-     # Update every 1 seg
-     load_csv()
-     time.sleep(1)  
