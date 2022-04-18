@@ -22,8 +22,8 @@ from datetime import date
 
 # ---- Start App
 
-img = Image.open('oca.jpg')
-img1= Image.open('oca1.png')
+img = Image.open('images/oca.jpg')
+img1= Image.open('images/oca1.png')
 
 st.set_page_config(page_title="Asignaciones SCE", page_icon=img, layout="wide")
 # ---- Web App Title ----
@@ -33,13 +33,11 @@ st.markdown(("""
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 </style>
-
 """),unsafe_allow_html=True)
 
 st.image(img1 , width=250)
 st.markdown('''
-
-# ** Asignaciones SCE **
+#  Asignaciones SCE 
 Esta es una app web creada para facilitar las asignaciones realizadas.
 ---
 ''')
@@ -49,7 +47,7 @@ Esta es una app web creada para facilitar las asignaciones realizadas.
 
 @st.cache(ttl=60)
 def load_csv():
-    df = pd.read_csv('BD_SCE.csv', sep=";")
+    df = pd.read_csv('data/BD_SCE.csv', sep=";")
     df = df.loc[:,["Número de incidencia","DIRECCION","Observaciones de campo","Centro Operativo" , "Código TdC", "Estado TDC", "Municipio","Fecha de Inicio de Ejecución de Trabajo", "Fecha de fin", "Código Causa", "FECHA_ASIGNADA_OCA", "ESTADO_OCA", "ZONAL" ,"AÑO"]]
     # df["FECHA_ASIGNADA_OCA"] = pd.to_datetime(df["FECHA_ASIGNADA_OCA"], infer_datetime_format=True)
 
@@ -137,4 +135,3 @@ with left_column:
     st.subheader(f"{total_cuenta_pendiente:}")
 
 st.write(df_selection)
-
