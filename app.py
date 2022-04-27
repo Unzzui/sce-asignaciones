@@ -4,8 +4,6 @@ from io import BytesIO
 from email import message
 from enum import unique
 from optparse import Values
-from matplotlib import markers
-from matplotlib.pyplot import title
 import streamlit as st
 import pandas as pd
 import numpy as np
