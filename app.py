@@ -1,22 +1,8 @@
-from ast import While
-from csv import writer
-from io import BytesIO
-from email import message
-from enum import unique
-from optparse import Values
 import streamlit as st
-import pandas as pd
-import numpy as np
-from re import sub
-from markdown import markdown
-import plotly.express as px 
-import time
 from PIL import Image
+import pandas as pd
 from io import BytesIO
-from pyxlsb import open_workbook as open_xlsb
 from datetime import date
-
-
 
 # ---- Start App
 
@@ -39,9 +25,6 @@ st.markdown('''
 Esta es una app web creada para facilitar las asignaciones realizadas.
 ---
 ''')
-
-
-
 
 @st.cache(ttl=60)
 def load_csv():
