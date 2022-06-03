@@ -29,7 +29,7 @@ Esta es una app web creada para facilitar las asignaciones realizadas.
 @st.cache(ttl=60)
 def load_csv():
     df = pd.read_csv('data/BD_SCE.csv', sep=";")
-    df = df.loc[:,["Número de incidencia","DIRECCION","Observaciones de campo","Centro Operativo" , "Código TdC", "Estado TDC", "Municipio","Fecha de Inicio de Ejecución de Trabajo", "Fecha de fin", "Código Causa", "FECHA_ASIGNADA_OCA", "ESTADO_OCA", "ZONAL" ,"AÑO"]]
+    df = df.loc[:,["Número de incidencia","DIRECCION","Observaciones de campo","Centro Operativo" , "Código TdC", "Estado TDC", "Municipio","Fecha de Inicio de Ejecución de Trabajo", "Fecha de fin", "Código Causa", "FECHA_ASIGNADA_OCA", "ESTADO_OCA", "ZONAL" ,"AÑO", "ITO_ASIGNADO"]]
     # df["FECHA_ASIGNADA_OCA"] = pd.to_datetime(df["FECHA_ASIGNADA_OCA"], infer_datetime_format=True)
 
     return df
@@ -70,8 +70,13 @@ comuna = st.sidebar.multiselect(
     default=df["Municipio"].unique(),
     )
 
+ito = st.sidebar.multiselect(
+    "ITO:",
+    options=df["ITO_ASIGNADO"].unique(),
+    default=df["ITO_ASIGNADO"].unique(),
+)
 df_selection = df.query(
-    "AÑO ==@year & ZONAL == @zonal & ESTADO_OCA == @estado & Municipio == @comuna"
+    "AÑO ==@year & ZONAL == @zonal & ESTADO_OCA == @estado & Municipio == @comuna & ITO_ASIGNADO == @ito"
 )
 
 
