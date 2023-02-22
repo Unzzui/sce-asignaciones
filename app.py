@@ -29,7 +29,7 @@ Esta es una app web creada para facilitar las asignaciones realizadas.
 @st.cache(ttl=60)
 def load_csv():
     df = pd.read_csv('data/BD_SCE.csv', sep=";")
-    df = df.loc[:,["Número de incidencia","DIRECCION","Observaciones de campo","Centro Operativo" , "Código TdC", "Estado TDC", "Municipio","Fecha de Inicio de Ejecución de Trabajo", "Fecha de fin", "Código Causa", "FECHA_ASIGNADA_OCA", "ESTADO_OCA", "ZONAL" ,"AÑO", "ITO_ASIGNADO"]]
+    df = df.loc[:,["Número de incidencia","DIRECCION","Observaciones de campo","Centro Operativo" , "Código TdC", "Estado TDC", "Municipio","Fecha de Inicio de Ejecución de Trabajo", "Fecha de fin", "FECHA_ASIGNADA_OCA", "ESTADO_OCA", "ZONAL" ,"AÑO", "ITO_ASIGNADO"]]
     # df["FECHA_ASIGNADA_OCA"] = pd.to_datetime(df["FECHA_ASIGNADA_OCA"], infer_datetime_format=True)
 
     return df
