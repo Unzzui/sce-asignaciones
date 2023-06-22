@@ -105,7 +105,7 @@ st.markdown("##")
 
 def to_excel(df_selection):
     output = BytesIO()
-    df_selection.to_excel(output, index=False, sheet_name='Sheet1')
+    df_selection.to_excel(output, index=False, sheet_name='Incidencias')
     processed_data = output.getvalue()
     return processed_data
 
