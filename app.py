@@ -105,22 +105,15 @@ st.markdown("##")
 
 def to_excel(df_selection):
     output = BytesIO()
-    with pd.ExcelWriter(output, engine="xlsxwriter") as writer:
-        df_selection.to_excel(writer, index=False, sheet_name="Sheet1")
-        workbook = writer.book
-        worksheet = writer.sheets["Sheet1"]
-        format1 = workbook.add_format({"num_format": "0.00"})
-        worksheet.set_column("A:A", None, format1)
+    df_selection.to_excel(output, index=False, sheet_name='Sheet1')
     processed_data = output.getvalue()
     return processed_data
 
 today = date.today().strftime("%d/%m/%Y")
 df_selection_xlsx = to_excel(df_selection)
-st.download_button(
-    label="📥 Descargar Excel",
-    data=df_selection_xlsx,
-    file_name=f"Asignaciones_{today}.xlsx",
-)
+st.download_button(label='📥 Descargar Excel',
+                   data=df_selection_xlsx,
+                   file_name='Asignaciones_' + today + '.xlsx')
 
 # # ---- TOP KPIs ----
 
