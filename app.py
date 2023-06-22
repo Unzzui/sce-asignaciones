@@ -54,8 +54,7 @@ def load_csv():
             "ITO_ASIGNADO",
         ]
     ]
-    # df["FECHA_ASIGNADA_OCA"] = pd.to_datetime(df["FECHA_ASIGNADA_OCA"], infer_datetime_format=True)
-
+    df["FECHA_ASIGNADA_OCA"] = pd.to_datetime(df["FECHA_ASIGNADA_OCA"],origin='1899-12-30', unit='D').dt.strftime('%d-%m-%Y')
     return df
 
 df = load_csv()
